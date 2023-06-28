@@ -1,0 +1,292 @@
+using System;
+
+namespace Tik_tac_toe
+{
+    class Program
+    {
+        static char[,] playfied =
+        {
+            {'1', '2', '3'},
+            {'4', '5', '6'},
+            {'7', '8', '9'}
+        };
+
+        //create a new playfield that covers, SINCE THE GAME WILL NOT BE RESET, WE NEED TO SWITCH TO LOCAL
+        //static char[,] playfieldInitial =
+        //{
+        //    {'1', '2', '3'},
+        //    {'4', '5', '6'},
+        //    {'7', '8', '9'}
+        //};
+
+        static int turns = 0;
+        static void Main(string[] args)
+        {
+            //player's number
+            int player = 2;
+            int input = 0;
+            bool inputcorrect = true;
+          // setField();
+            setPlayer();
+           
+            //run a do while loop
+            do
+            {
+
+                if (player == 2)
+                {
+                    player = 1;
+                    FieldSelectXorO(player, input);
+                }
+                else if (player == 1)
+                {
+                    player = 2;
+                    FieldSelectXorO(player, input);
+                }
+                setField();
+
+
+                //to evaluate the winner of the game
+                #region
+
+                //declare a new char array to store the character variable
+                char[] playerChars = { 'X', 'O' };
+
+                //evaluate if the char match in the field and show the condition
+                //since we evaluate a 2 dimension array, we need a for loop
+                foreach (char players in playerChars)
+                {
+                    if ((playfied[0, 0] == players) && (playfied[0, 1] == players) && (playfied[0, 2] == players)
+                       || (playfied[1, 0] == players) && (playfied[1, 1] == players) && (playfied[1, 2] == players) ||
+                        (playfied[2, 0] == players) && (playfied[2, 1] == players) && (playfied[2, 2] == players) ||
+                        (playfied[0, 0] == players) && (playfied[0, 1] == players) && (playfied[0, 2] == players) ||
+                        (playfied[0, 0] == players) && (playfied[1, 0] == players) && (playfied[2, 0] == players) ||
+                        (playfied[0, 1] == players) && (playfied[1, 1] == players) && (playfied[2, 1] == players) ||
+                        (playfied[0, 2] == players) && (playfied[1, 2] == players) && (playfied[2, 2] == players)||
+                        (playfied[0, 0] == players) && (playfied[1, 1] == players) && (playfied[2, 2] == players)||
+                        (playfied[0, 2] == players) && (playfied[1, 1] == players) && (playfied[2, 0] == players))
+
+                    {
+                        if (players == 'X')
+                        {
+                            Console.WriteLine("Player2 Won the Game");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Player1 Won the Game");
+                        }
+                        Console.WriteLine("Please press any key to reset the game");
+                        Console.ReadKey();
+                        resetGame();
+                        break;
+                    }
+                    else if (turns == 10)
+                    {
+                        Console.WriteLine("DRAW");
+                        Console.WriteLine("Please press any key to reset the game");
+                        Console.ReadKey();
+                        resetGame();
+                    }
+             
+
+                    //else if ((playfied[1, 0] == players) && (playfied[1, 1] == players) && (playfied[1, 2] == players))
+                    //{
+                    //    Console.WriteLine("Awesome, You win the game");
+                    //}
+                    //else if ((playfied[2, 0] == players) && (playfied[2, 1] == players) && (playfied[2, 2] == players))
+                    //{
+                    //    Console.WriteLine("Congratuation, You win the game! ");
+                    //}
+                    //else if ((playfied[0, 0] == players) && (playfied[1, 0] == players) && (playfied[2, 0] == players))
+                    //{
+                    //    Console.WriteLine("You win the game");
+                    //}
+                    //else if ((playfied[0, 1] == players) && (playfied[1, 1] == players) && (playfied[2, 1] == players))
+                    //{
+                    //    Console.WriteLine("Awesome Game, You win");
+                    //}
+                    //else if ((playfied[0, 2] == players) && (playfied[1, 2] == players) && (playfied[2, 2] == players))
+                    //{
+                    //    Console.WriteLine("You win the game");
+                    //}
+                    //else if ((playfied[0, 0] == players) && (playfied[1, 1] == players) && (playfied[2, 2] == players))
+                    //{
+                    //    Console.WriteLine("You win the game");
+                    //}
+                    //else if ((playfied[0, 2] == players) && (playfied[1, 1] == players) && (playfied[2, 0] == players))
+                    //{
+                    //    Console.WriteLine("You win the game");
+                    //}
+                    //else
+                    //{
+                    //    Console.WriteLine("  ");
+                    //}
+
+           
+                }
+
+
+
+                #endregion
+
+
+                //we need to implement a reset game method
+                static void resetGame()
+                {
+                   char[,] playfieldInitial =
+                    {
+                        {'1', '2', '3'},
+                        {'4', '5', '6'},
+                        {'7', '8', '9'}
+                    };
+                    playfied = playfieldInitial;
+                    setField();
+                    turns = 0;
+               
+                }
+
+
+                //inner do while loop thta ask to select player
+                do
+                {
+                    Console.WriteLine("\nPlayer {0}: Choose your field", player);
+                    try
+                    {
+                        input = Convert.ToInt32(Console.ReadLine());
+                    }
+                    catch(FormatException)
+                    {
+                        Console.WriteLine("Please enter a number!");
+                    }
+
+                    if ((input == 1) && (playfied[0, 0] == '1'))
+                        inputcorrect = true;
+                    else if ((input == 2) && (playfied[0, 1] == '2'))
+                        inputcorrect = true;
+                    else if ((input == 3) && (playfied[0, 2] == '3'))
+                        inputcorrect = true;
+                    else if ((input == 4) && (playfied[1, 0] == '4'))
+                        inputcorrect = true;
+                    else if ((input == 5) && (playfied[1, 1] == '5'))
+                        inputcorrect = true;
+                    else if ((input == 6) && (playfied[1, 2] == '6'))
+                        inputcorrect = true;
+                    else if ((input == 7) && (playfied[2, 0] == '7'))
+                        inputcorrect = true;
+                    else if ((input == 8) && (playfied[2, 1] == '8'))
+                        inputcorrect = true;
+                    else if ((input == 9) && (playfied[2, 2] == '9'))
+                        inputcorrect = true;
+                    else
+                    {
+                        Console.WriteLine("Incorrect entries, Please enter again! ");
+                    }
+                } while (!inputcorrect);
+
+
+                //now the function of this game is working, now we just need to implement validation of the game.
+
+
+                //player input and condition change
+                ////first switch statement for player switchment
+                ////you can switch input's conditon through just implement function
+                //switch (player) {
+
+                //    case 1:
+                //        {
+                //            //second input for user'
+                //            switch (input)
+                //            {
+                //                case 1: playfied[0, 0]='x'; break;
+                //                case 2: playfied[0, 1]='x'; break;
+                //                case 3: playfied[0, 0]='x'; break;
+                //                case 4: playfied[0, 0]='x'; break;
+                //                case 5: playfied[0, 0]='x'; break;
+                //                case 6: playfied[0, 0]='x'; break;
+                //                case 7: playfied[0, 0]='x'; break;
+                //                case 8: playfied[0, 0]='x'; break;
+                //                case 9: break;
+
+
+                //            }
+                //        }
+                //        break;
+                //}
+
+
+
+            } while (true);
+
+
+
+            Console.Read();
+        }
+
+        // create a player setup function
+        public static void setPlayer()
+        {
+            string player1;
+            string player2;
+            Console.WriteLine("Please enter the player 1's name: ");
+            player1 = Console.ReadLine();
+
+            Console.WriteLine("Please enter the player 2's name: ");
+            player2 = Console.ReadLine();
+
+            Console.WriteLine("Player 1's name is {0}", player1);
+            Console.WriteLine("Player 2's name is {0}", player2);
+            Console.WriteLine(" {0} and {1} Let's start the game! ", player1, player2);
+
+        }
+
+
+        //create a new method to setup field
+        public static void setField()
+        {
+            Console.WriteLine("Tik Tak Toe");
+            Console.WriteLine("   |   |  ");
+            Console.WriteLine(" {0} | {1} | {2} ", playfied[0, 0], playfied[0, 1], playfied[0, 2]);
+            Console.WriteLine("___|___|___");
+            Console.WriteLine("   |   |  ");
+            Console.WriteLine(" {0} | {1} | {2} ", playfied[1, 0], playfied[1, 1], playfied[1, 2]);
+            Console.WriteLine("___|___|___");
+            Console.WriteLine("   |   |  ");
+            Console.WriteLine(" {0} | {1} | {2} ", playfied[2, 0], playfied[2, 1], playfied[2, 2]);
+            turns++;
+        }
+
+        public static void FieldSelectXorO(int player, int input)
+        {
+            //initial a char variable to represent playersign
+            char playerSign =' ';
+            if (player == 1)
+            {
+                playerSign = 'X';
+            }else if (player == 2)
+            {
+                playerSign = 'O';
+            }
+
+                        // input for user'
+                        switch (input)
+                        {
+                            case 1: playfied[0, 0] = playerSign; break;
+                            case 2: playfied[0, 1] = playerSign; break;
+                            case 3: playfied[0, 2] = playerSign; break;
+                            case 4: playfied[1, 0] = playerSign; break;
+                            case 5: playfied[1, 1] = playerSign; break;
+                            case 6: playfied[1, 2] = playerSign; break;
+                            case 7: playfied[2, 0] = playerSign; break;
+                            case 8: playfied[2, 1] = playerSign; break;
+                            case 9: playfied[2, 2] = playerSign; break;
+                               
+
+
+                        }
+                    
+
+                   
+            
+        }
+    }
+}
