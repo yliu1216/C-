@@ -1,0 +1,15 @@
+C:\Users\lyw15\OneDrive\桌面\C#\Windows Presentation Foundation\WpfZoo_Manager\WpfZoo_Manager\bin\Debug\WpfZoo_Manager.exe.config
+C:\Users\lyw15\OneDrive\桌面\C#\Windows Presentation Foundation\WpfZoo_Manager\WpfZoo_Manager\bin\Debug\WpfZoo_Manager.exe
+C:\Users\lyw15\OneDrive\桌面\C#\Windows Presentation Foundation\WpfZoo_Manager\WpfZoo_Manager\bin\Debug\WpfZoo_Manager.pdb
+C:\Users\lyw15\OneDrive\桌面\C#\Windows Presentation Foundation\WpfZoo_Manager\WpfZoo_Manager\obj\Debug\WpfZoo_Manager.csproj.AssemblyReference.cache
+C:\Users\lyw15\OneDrive\桌面\C#\Windows Presentation Foundation\WpfZoo_Manager\WpfZoo_Manager\obj\Debug\MainWindow.g.cs
+C:\Users\lyw15\OneDrive\桌面\C#\Windows Presentation Foundation\WpfZoo_Manager\WpfZoo_Manager\obj\Debug\App.g.cs
+C:\Users\lyw15\OneDrive\桌面\C#\Windows Presentation Foundation\WpfZoo_Manager\WpfZoo_Manager\obj\Debug\WpfZoo_Manager_MarkupCompile.cache
+C:\Users\lyw15\OneDrive\桌面\C#\Windows Presentation Foundation\WpfZoo_Manager\WpfZoo_Manager\obj\Debug\WpfZoo_Manager_MarkupCompile.lref
+C:\Users\lyw15\OneDrive\桌面\C#\Windows Presentation Foundation\WpfZoo_Manager\WpfZoo_Manager\obj\Debug\MainWindow.baml
+C:\Users\lyw15\OneDrive\桌面\C#\Windows Presentation Foundation\WpfZoo_Manager\WpfZoo_Manager\obj\Debug\WpfZoo_Manager.g.resources
+C:\Users\lyw15\OneDrive\桌面\C#\Windows Presentation Foundation\WpfZoo_Manager\WpfZoo_Manager\obj\Debug\WpfZoo_Manager.Properties.Resources.resources
+C:\Users\lyw15\OneDrive\桌面\C#\Windows Presentation Foundation\WpfZoo_Manager\WpfZoo_Manager\obj\Debug\WpfZoo_Manager.csproj.GenerateResource.cache
+C:\Users\lyw15\OneDrive\桌面\C#\Windows Presentation Foundation\WpfZoo_Manager\WpfZoo_Manager\obj\Debug\WpfZoo_Manager.csproj.CoreCompileInputs.cache
+C:\Users\lyw15\OneDrive\桌面\C#\Windows Presentation Foundation\WpfZoo_Manager\WpfZoo_Manager\obj\Debug\WpfZoo_Manager.exe
+C:\Users\lyw15\OneDrive\桌面\C#\Windows Presentation Foundation\WpfZoo_Manager\WpfZoo_Manager\obj\Debug\WpfZoo_Manager.pdb
